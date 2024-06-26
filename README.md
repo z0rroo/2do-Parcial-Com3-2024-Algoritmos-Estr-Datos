@@ -40,7 +40,7 @@ Sobrecarga de métodos:
 ## Ejercicio 2:
 
 
-Definir una clase <code>Alumno</code> como una diccionario, el cual contiene los datos:
+Definir una clase <code>Alumno</code> como un diccionario, el cual contiene los datos:
 
 <code>
 { "Nombre" : 'string',
