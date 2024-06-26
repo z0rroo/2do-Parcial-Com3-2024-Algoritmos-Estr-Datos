@@ -47,7 +47,7 @@ class Nodo:
 class ListaDoblementeEnlazada:
     def __init__(self):
         self.head = None
-        self.tail = None
+        self.last = None
         self.size = 0
     
     def vacia(self):
@@ -58,9 +58,9 @@ class ListaDoblementeEnlazada:
         if self.vacia():
             self.head = nuevo_nodo
         else:
-            nuevo_nodo.anterior = self.tail
-            self.tail.siguiente = nuevo_nodo
-        self.tail = nuevo_nodo
+            nuevo_nodo.anterior = self.last
+            self.last.siguiente = nuevo_nodo
+        self.last = nuevo_nodo
         self.size += 1
     
     def lista_alumno(self, cantidad_alumnos=5):
