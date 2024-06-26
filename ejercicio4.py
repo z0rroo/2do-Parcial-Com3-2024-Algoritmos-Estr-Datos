@@ -75,26 +75,22 @@ class ListaDoblementeEnlazada:
         if self.size < 2:
             return
         
-        # Implementación del algoritmo de ordenación de selección
         current = self.head
         while current:
-            min_node = current
-            siguiente_node = current.siguiente
-            while siguiente_node:
-                if siguiente_node.alumno.fecha_ingreso < min_node.alumno.fecha_ingreso:
-                    min_node = siguiente_node
-                siguiente_node = siguiente_node.siguiente
-            
-            # Swap current node with min_node
-            if min_node != current:
-                self._swap(current, min_node)
-            
+            min_nodo = current
+            siguiente_nodo = current.siguiente
+            while siguiente_nodo:
+                if siguiente_nodo.alumno.fecha_ingreso < min_nodo.alumno.fecha_ingreso:
+                    min_nodo = siguiente_nodo
+                siguiente_nodo = siguiente_nodo.siguiente
+            if min_nodo != current:
+                self._swap(current, min_nodo)
             current = current.siguiente
     
-    def _swap(self, node1, node2):
-        temp_alumno = node1.alumno
-        node1.alumno = node2.alumno
-        node2.alumno = temp_alumno
+    def _swap(self, nodo1, nodo2):
+        temp_alumno = nodo1.alumno
+        nodo1.alumno = nodo2.alumno
+        nodo2.alumno = temp_alumno
     
     def __iter__(self):
         self._iter_actual = self.head
