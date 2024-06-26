@@ -21,7 +21,7 @@ class GeneradorNombres:
 class Alumno:
     def __init__(self):
         self.nombre = GeneradorNombres().nombre_aleatorio()
-        self.dni = random.randint(10000000, 48999999)  # DNI aleatorio de 8 dígitos
+        self.dni = random.randint(10000000, 48999999)
         self.fecha_ingreso = self.generar_fecha_ingreso()
         self.carrera = random.choice([
             'Programación', 'Comunicación Digital', 'Gestión de las Organizaciones', 'Acompañante Terapéutico',
@@ -29,7 +29,6 @@ class Alumno:
             ])
 
     def generar_fecha_ingreso(self):
-        # Generar una fecha aleatoria en los últimos 4 años
         hoy = datetime.today()
         start_date = hoy - timedelta(days=4*365)
         end_date = hoy
