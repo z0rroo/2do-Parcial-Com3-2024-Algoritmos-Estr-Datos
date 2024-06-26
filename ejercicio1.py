@@ -1,4 +1,4 @@
-### Ejercicio 1: Class de Fecha ###
+## Ejercicio 1: ##
 from datetime import datetime
 
 class Fecha:
