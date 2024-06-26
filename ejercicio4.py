@@ -51,12 +51,12 @@ class ListaDoblementeEnlazada:
         self.last = None
         self.size = 0
     
-    def esta_vacia(self):
+    def vacia(self):
         return self.size == 0
     
     def agregar_al_final(self, alumno):
         nuevo_nodo = Nodo(alumno)
-        if self.esta_vacia():
+        if self.vacia():
             self.head = nuevo_nodo
         else:
             nuevo_nodo.anterior = self.last
