@@ -47,21 +47,21 @@ class Nodo:
 
 class ListaDoblementeEnlazada:
     def __init__(self):
-        self.cabeza = None
-        self.cola = None
+        self.head = None
+        self.tail = None
         self.size = 0
     
-    def esta_vacia(self):
+    def vacia(self):
         return self.size == 0
     
     def agregar_al_final(self, alumno):
         nuevo_nodo = Nodo(alumno)
-        if self.esta_vacia():
-            self.cabeza = nuevo_nodo
+        if self.vacia():
+            self.head = nuevo_nodo
         else:
-            nuevo_nodo.anterior = self.cola
-            self.cola.siguiente = nuevo_nodo
-        self.cola = nuevo_nodo
+            nuevo_nodo.anterior = self.tail
+            self.tail.siguiente = nuevo_nodo
+        self.tail = nuevo_nodo
         self.size += 1
     
     def lista_alumno(self, cantidad_alumnos=5):
@@ -72,7 +72,7 @@ class ListaDoblementeEnlazada:
         return lista
     
     def __iter__(self):
-        self._iter_actual = self.cabeza
+        self._iter_actual = self.head
         return self
     
     def __next__(self):
