@@ -65,7 +65,7 @@ class ListaDoblementeEnlazada:
         self.cola = nuevo_nodo
         self.size += 1
     
-    def lista_ejemplo(self, cantidad_alumnos=5):
+    def lista_alumno(self, cantidad_alumnos=5):
         lista = ListaDoblementeEnlazada()
         for _ in range(cantidad_alumnos):
             alumno = Alumno()
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     cantidad_alumnos = obtener_numero_entero("Ingrese la cantidad de alumnos a generar: ")
     
     lista = ListaDoblementeEnlazada()
-    lista = lista.lista_ejemplo(cantidad_alumnos)
+    lista = lista.lista_alumno(cantidad_alumnos)
     lista.ordenar_por_fecha_ingreso()
     
     print("\nLista doblemente enlazada ordenada por fecha de ingreso:")
