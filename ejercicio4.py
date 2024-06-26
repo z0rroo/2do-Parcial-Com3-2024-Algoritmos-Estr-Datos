@@ -21,7 +21,7 @@ class GeneradorNombres:
 class Alumno:
     def __init__(self):
         self.nombre = GeneradorNombres().nombre_aleatorio()
-        self.dni = random.randint(10000000, 99999999)  # DNI aleatorio de 8 dígitos
+        self.dni = random.randint(10000000, 48999999)
         self.fecha_ingreso = self.generar_fecha_ingreso()
         self.carrera = random.choice([
             'Programación', 'Comunicación Digital', 'Gestión de las Organizaciones', 'Acompañante Terapéutico',
@@ -29,7 +29,6 @@ class Alumno:
             ])
 
     def generar_fecha_ingreso(self):
-        # Generar una fecha aleatoria en los últimos 4 años
         hoy = datetime.today()
         start_date = hoy - timedelta(days=4*365)
         end_date = hoy
@@ -48,8 +47,8 @@ class Nodo:
 
 class ListaDoblementeEnlazada:
     def __init__(self):
-        self.cabeza = None
-        self.cola = None
+        self.head = None
+        self.last = None
         self.size = 0
     
     def esta_vacia(self):
@@ -58,11 +57,11 @@ class ListaDoblementeEnlazada:
     def agregar_al_final(self, alumno):
         nuevo_nodo = Nodo(alumno)
         if self.esta_vacia():
-            self.cabeza = nuevo_nodo
+            self.head = nuevo_nodo
         else:
-            nuevo_nodo.anterior = self.cola
-            self.cola.siguiente = nuevo_nodo
-        self.cola = nuevo_nodo
+            nuevo_nodo.anterior = self.last
+            self.last.siguiente = nuevo_nodo
+        self.last = nuevo_nodo
         self.size += 1
     
     def lista_alumno(self, cantidad_alumnos=5):
@@ -77,14 +76,14 @@ class ListaDoblementeEnlazada:
             return
         
         # Implementación del algoritmo de ordenación de selección
-        current = self.cabeza
+        current = self.head
         while current:
             min_node = current
-            next_node = current.siguiente
-            while next_node:
-                if next_node.alumno.fecha_ingreso < min_node.alumno.fecha_ingreso:
-                    min_node = next_node
-                next_node = next_node.siguiente
+            siguiente_node = current.siguiente
+            while siguiente_node:
+                if siguiente_node.alumno.fecha_ingreso < min_node.alumno.fecha_ingreso:
+                    min_node = siguiente_node
+                siguiente_node = siguiente_node.siguiente
             
             # Swap current node with min_node
             if min_node != current:
@@ -98,10 +97,10 @@ class ListaDoblementeEnlazada:
         node2.alumno = temp_alumno
     
     def __iter__(self):
-        self._iter_actual = self.cabeza
+        self._iter_actual = self.head
         return self
     
-    def __next__(self):
+    def __siguiente__(self):
         if self._iter_actual is None:
             raise StopIteration
         else:
