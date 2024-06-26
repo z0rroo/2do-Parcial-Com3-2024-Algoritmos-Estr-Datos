@@ -58,16 +58,16 @@ class Fecha:
 def obtener_fecha_valida(mensaje):
     while True:
         try:
-            entrada = input(mensaje + " (formato DD/MM/AAAA o dejar en blanco para fecha actual): ")
+            entrada = input(mensaje + " (formato DD/MM/AAAA o en blanco para fecha actual): ")
             if entrada == "":
                 return Fecha()
             dia, mes, año = map(int, entrada.split('/'))
             return Fecha(dia, mes, año)
         except ValueError:
-            print("Fecha inválida. Por favor, intente nuevamente.")
+            print("Fecha no válida. Por favor, intente de nuevo.")
 
 def calcular_diferencia_fechas(fecha_actual):
-    print("Ingrese la fecha para calcular la diferencia (o dejar en blanco para usar la fecha actual):")
+    print("Ingrese la fecha para calcular la diferencia (o en blanco para usar la fecha actual):")
     fecha1 = obtener_fecha_valida("Fecha 1")
     fecha2 = obtener_fecha_valida("Fecha 2")
     diferencia = fecha1.calcular_dif_fecha(fecha2)
@@ -76,10 +76,10 @@ def calcular_diferencia_fechas(fecha_actual):
 def main():
     fecha = Fecha()
     while True:
-        print("\nMenú de opciones:")
+        print("\n- Menú de opciones:")
         print("1. Mostrar fecha actual")
         print("2. Avanzar a la siguiente fecha")
-        print("3. Calcular diferencia entre fechas")
+        print("3. Calcular diferencia de fechas")
         print("4. Salir")
 
         opcion = input("Ingrese una opción: ")
@@ -101,7 +101,7 @@ def main():
         elif opcion == "4":
             break
         else:
-            print("Opción inválida. Intente nuevamente.")
+            print("Opción no válida. Intente de nuevo.")
 
 if __name__ == "__main__":
     main()
