@@ -44,7 +44,7 @@ class Nodo:
         self.siguiente = siguiente
         self.anterior = anterior
 
-class ListaDoblementeEnlazada:
+class listadobenlazada:
     def __init__(self):
         self.head = None
         self.last = None
@@ -64,7 +64,7 @@ class ListaDoblementeEnlazada:
         self.size += 1
     
     def lista_alumno(self, cantidad_alumnos=5):
-        lista = ListaDoblementeEnlazada()
+        lista = listadobenlazada()
         for _ in range(cantidad_alumnos):
             alumno = Alumno()
             lista.agregar_al_final(alumno)
@@ -82,7 +82,7 @@ class ListaDoblementeEnlazada:
             self._iter_actual = self._iter_actual.siguiente
             return alumno
 
-def obtener_numero_entero(mensaje):
+def cantidad(mensaje):
     while True:
         try:
             numero = int(input(mensaje))
@@ -91,9 +91,9 @@ def obtener_numero_entero(mensaje):
             print("Por favor, ingresa un número entero válido.")
 
 if __name__ == "__main__":
-    cantidad_alumnos = obtener_numero_entero("Ingrese la cantidad de alumnos a generar: ")
+    cantidad_alumnos = cantidad("Ingrese la cantidad de alumnos a generar: ")
     
-    lista = ListaDoblementeEnlazada()
+    lista = listadobenlazada()
     lista = lista.lista_alumno(cantidad_alumnos)
     
     print(f"Lista de {cantidad_alumnos} alumnos:")
