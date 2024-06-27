@@ -118,7 +118,7 @@ def cantidad(mensaje):
             numero = int(input(mensaje))
             return numero
         except ValueError:
-            print("Ingresa un número entero válido.")
+            print("Por favor, ingresa un número entero válido.")
 
 def main():
     cantidad_alumnos = cantidad("Ingrese la cantidad de alumnos a generar: ")
