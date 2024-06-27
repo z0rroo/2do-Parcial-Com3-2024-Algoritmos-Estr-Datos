@@ -44,7 +44,7 @@ class Nodo:
         self.siguiente = siguiente
         self.anterior = anterior
 
-class ListaDoblementeEnlazada:
+class listadobenlazada:
     def __init__(self):
         self.head = None
         self.last = None
@@ -123,7 +123,7 @@ def cantidad(mensaje):
 def main():
     cantidad_alumnos = cantidad("Ingrese la cantidad de alumnos a generar: ")
     
-    lista = ListaDoblementeEnlazada()
+    lista = listadobenlazada()
     lista_alumnos = ListaAlumnos()
 
     alumnos_generados = lista.lista_alumnos(cantidad_alumnos)
